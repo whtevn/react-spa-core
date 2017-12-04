@@ -1,0 +1,103 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.app-container {
+  display: grid;
+  grid-template-rows: 50px auto 30px;
+  grid-template-columns: auto 250px minmax(400px, 800px) 250px auto;
+  background: green;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container .header-area {
+  grid-column: 1 / 6;
+  grid-row: 1;
+  background: purple;
+}
+
+.app-container .footer-area {
+  grid-column: 1 / 6;
+  grid-row: 3;
+  background: red;
+}
+
+.app-container .navigation-panel {
+  grid-column: 2;
+  grid-row: 2;
+  background: grey;
+}
+
+.app-container .activity-area {
+  grid-column: 3;
+  grid-row: 2;
+  background: blue;
+}
+
+.app-container .information-panel {
+  grid-column: 4;
+  grid-row: 2;
+  background: orange;
+}
+
+@media screen and (max-width: 900px) {
+  .app-container {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    background: green;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .app-container .navigation-panel {
+    grid-column: 1 / 2;
+    grid-row: 2;
+  }
+  .app-container .activity-area {
+    grid-column: 1 / 4;
+    grid-row: 2;
+  }
+  .app-container .information-panel {
+    grid-column: 4 / 6;
+    grid-row: 2;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .app-container {
+    grid-template-rows: 50px auto auto auto auto auto 30px;
+    grid-template-columns: auto 250px minmax(400px, 800px) 250px auto;
+  }
+
+  .app-container .head {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    background: purple;
+  }
+
+  .app-container .foot {
+    grid-column: 1 / 4;
+    grid-row: 7;
+  }
+
+  .app-container .navigation-panel {
+    grid-column: 1 / 4;
+    grid-row: 2 / 4;
+  }
+
+  .app-container .activity-area {
+    grid-column: 1 / 4;
+    grid-row: 2;
+  }
+
+  .app-container .information-panel {
+    grid-column: 1 / 4;
+    grid-row: 2;
+  }
+}
+
+
