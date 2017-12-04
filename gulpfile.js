@@ -5,22 +5,22 @@ const webpackDevServer = require('webpack-dev-server');
 const sass = require('gulp-sass');
 const gutil = require('gulp-util');
 
-const webpackConfig = require('./webpack.config.js')
+const dest = "build/";
 
-const appName = process.env.APP_NAME||"conversation";
+const webpackConfig = require('./webpack.config.js')
 
 gulp.task('build', [ 'copyResources', 'sass', 'webpack' ]);
 gulp.task('default', [ 'build', 'startServer', 'watch' ]);
 
 gulp.task('webpack', function() {
-  return gulp.src(`./src/apps/${appName}-app/index.js`)
+  return gulp.src(`./src/app/index.js`)
     .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(gulp.dest('www/'));
+    .pipe(gulp.dest(dest));
 });
 
 gulp.task('copyResources', function(){
   gulp.src([`./src/index.html`, './src/assets/lib/**/*', './src/assets/images/**/*'])
-    .pipe(gulp.dest('www/'));
+    .pipe(gulp.dest(dest));
 });
 
 gulp.task('watch', function() {
@@ -31,7 +31,7 @@ gulp.task('watch', function() {
 gulp.task('sass', function () {
   return gulp.src('./src/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('www/'));
+    .pipe(gulp.dest(dest));
 });
 
 gulp.task('startServer', function() {
@@ -42,7 +42,7 @@ gulp.task('startServer', function() {
   }));
   new webpackDevServer(compiler, {
     publicPath: webpackConfig.output.publicPath,
-    contentBase: './www'
+    contentBase: `./${dest}`
   }).listen(8080);
 })
 
