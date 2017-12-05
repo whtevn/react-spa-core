@@ -1,22 +1,23 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import Navigation from '../modules/navigation/component.navigation';
+import Header from '../modules/header/component.header';
+import Footer from '../modules/footer/component.footer';
 
 class AppContainerElement extends React.Component {
   render() {
 		return <div className="app-container">
-			<header className="header-area">
-			</header>
 
-			<nav className="navigation-panel">
-			</nav>
+      <Header { ...this.props } />
+
+      <Navigation { ...this.props } />
+
 			<section className="activity-area">
 			</section>
 
 			<aside className="information-panel">
 			</aside>
 
-			<footer className="footer-area">
-			</footer>
+      <Footer { ...this.props } />
 		</div>
   }
 }
