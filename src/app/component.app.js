@@ -3,18 +3,19 @@ import { Route } from 'react-router-dom';
 
 class AppContainerElement extends React.Component {
   render() {
-		<div class="app-container">
-			<header class="header-area">
+		return <div className="app-container">
+			<header className="header-area">
 			</header>
-			<nav class="navigation-panel">
+
+			<nav className="navigation-panel">
 			</nav>
-			<section class="activity-area">
+			<section className="activity-area">
 			</section>
 
-			<aside class="information-panel">
+			<aside className="information-panel">
 			</aside>
 
-			<footer class="footer-area">
+			<footer className="footer-area">
 			</footer>
 		</div>
   }

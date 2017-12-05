@@ -1,14 +1,14 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 
-// import { Reducer as ReplyFormReducer, initialState as replyFormState } from '../../modules/name/reducer.name';
+import { Reducer as NavigationReducer, initialState as navigationState } from '../modules/navigation/reducer.navigation';
 
 export const initialState = fromJS({
-  //name: nameState,
+  navigation: navigationState,
 });
 
 const AppReducer = combineReducers({
-	//name: NameReducer,
+	navigation: NavigationReducer,
 });
 
 export default AppReducer;

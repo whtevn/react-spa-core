@@ -2,26 +2,29 @@ import AppElement from './component.app';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { Map } from 'immutable';
-//import * as nameActions from '../../modules/name/actions.name'
+import * as navigationActions from '../modules/navigation/actions.navigation'
 
 const mapStateToProps = state => {
   return {
-    // name: state.get("name"),
+     navigation: state.get("navigation"),
   }
 }
 
 const mapDispatchToProps = ( dispatch, state ) => {
   return {
-    /* doAction: payload => {
-      dispatch(nameActions.DoAction(payload))
-    },*/
+    showMenu: payload => {
+      dispatch(navigationActions.ShowMenu(payload))
+    },
+    hideMenu: payload => {
+      dispatch(navigationActions.HideMenu(payload))
+    },
   }
 }
 
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(VendorDesktopAppElement))
+)(AppElement))
 
 
 
