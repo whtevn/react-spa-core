@@ -1,11 +1,27 @@
 @import 'layout';
 
+body, #app-container {
+  font-family: "Helvetica","Arial",sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
 a {
 	color: $primary;
 }
 
 .hide, .hide--desktop {
 	display: none;
+}
+
+.is-selected {
+}
+
+.is-focused {
+}
+
+.is-dirty {
 }
 
 @media screen and (max-width: 900px) {
@@ -28,3 +44,5 @@ a {
 	}
 }
 
+
+@import 'header';
