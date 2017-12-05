@@ -1,14 +1,24 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 
 class Header extends React.Component {
   render() {
 		return <header className="header-area">
-
+      <a
+         onClick={this.toggleMenu.bind(this)}
+         className="hide--desktop"
+      >
+        <i className="icon-bars"></i>
+      </a>
 
     </header>
   }
+
+  toggleMenu(e){
+    e.preventDefault();
+    this.props.toggleMenu();
+  }
 }
+
 
 export default Header
 

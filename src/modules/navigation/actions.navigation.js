@@ -2,6 +2,15 @@ import fetch from '../../assets/lib/fetch';
 
 const Type = "Navigation";
 
+export const TOGGLE_MENU = `${Type} TOGGLE_MENU`;
+export const ToggleMenu = ( payload ) => {
+  return {
+    type: TOGGLE_MENU,
+    payload
+  }
+}
+
+
 export const SHOW_MENU = `${Type} SHOW_MENU`;
 export const ShowMenu = ( payload ) => {
   return {

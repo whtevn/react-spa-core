@@ -19,7 +19,7 @@ gulp.task('webpack', function() {
 });
 
 gulp.task('copyResources', function(){
-  gulp.src([`./src/index.html`, './src/assets/lib/**/*', './src/assets/images/**/*'])
+  gulp.src([`./src/index.html`, './src/assets/lib/**/*', './src/assets/images/**/*', './src/assets/icons/**/*'])
     .pipe(gulp.dest(dest));
 });
 
@@ -29,7 +29,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('sass', function () {
-  return gulp.src('./src/**/*.scss')
+  return gulp.src('./src/assets/scss/base.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(dest));
 });

@@ -12,6 +12,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = ( dispatch, state ) => {
   return {
+    toggleMenu: payload => {
+      dispatch(navigationActions.ToggleMenu(payload))
+    },
     showMenu: payload => {
       dispatch(navigationActions.ShowMenu(payload))
     },
