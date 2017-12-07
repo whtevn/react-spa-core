@@ -36,7 +36,9 @@ class AppContainerElement extends React.Component {
       </Navigation>
 
       <Panel { ...this.props } name="activity-area" >
-        <Route render={ MyElement } when="/page/one" exact />
+        <Route when="/page/one" exact >
+					Page 1
+        </Route>
         <Route render={ MyElement } when="/page/:number" exact />
         <Route render={ MyElement } when="/page/three/:number" exact />
       </Panel>

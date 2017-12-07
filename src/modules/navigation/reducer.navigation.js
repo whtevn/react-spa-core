@@ -27,6 +27,12 @@ export const Reducer = (state, action) => {
       return state
         .setIn(["state", "hidden"], true)
         .setIn(["data", "location"], action.payload);
+    case Actions.RENDER:
+      return state
+        .setIn(["data", "panel", action.payload.name], fromJS({
+          route: action.payload.route,
+          params: action.payload.params,
+        }));
     default:
       return state;
   }
