@@ -26,3 +26,17 @@ export const HideMenu = ( payload ) => {
     payload
   }
 }
+
+export const SET_LOCATION = `${Type} SET_LOCATION`;
+export const SetLocation = ( payload ) => {
+  return {
+    type: SET_LOCATION,
+    payload
+  }
+}
+export function NavigateTo( payload ) {
+  return (dispatch, getState) => {
+    dispatch(SetLocation(payload));
+    window.location = `#${payload}`;
+  }
+}

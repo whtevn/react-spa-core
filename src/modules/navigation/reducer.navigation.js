@@ -5,6 +5,9 @@ export const initialState = fromJS({
   state: {
     hidden: true,
   },
+  data: {
+    location: undefined,  // the current app resource
+  }
 })
 
 export const Reducer = (state, action) => {
@@ -20,6 +23,10 @@ export const Reducer = (state, action) => {
     case Actions.HIDE_MENU:
       return state
         .setIn(["state", "hidden"], true);
+    case Actions.SET_LOCATION:
+      return state
+        .setIn(["state", "hidden"], true)
+        .setIn(["data", "location"], action.payload);
     default:
       return state;
   }

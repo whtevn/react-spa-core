@@ -21,6 +21,9 @@ const mapDispatchToProps = ( dispatch, state ) => {
     hideMenu: payload => {
       dispatch(navigationActions.HideMenu(payload))
     },
+    navigateTo: payload => {
+      dispatch(navigationActions.NavigateTo(payload))
+    },
   }
 }
 
