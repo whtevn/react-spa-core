@@ -39,13 +39,19 @@ class AppContainerElement extends React.Component {
         <Route when="/page/one" exact >
 					Page 1
         </Route>
-        <Route render={ MyElement } when="/page/:number" exact />
-        <Route render={ MyElement } when="/page/three/:number" exact />
+        <Route render={ PageNumSub } when="/page/:number/:sub" exact />
+        <Route render={ PageNum } when="/page/:number" exact />
+        <Route when="/" exact >
+          default
+        </Route>
       </Panel>
 
       <Panel { ...this.props } name="information-panel" >
-        <Route render={ MyElement } when="/page/three" />
-        <Route render={ MyElement } when="/page" />
+        <Route render={ PageThree } when="/page/three" />
+        <Route render={ Page } when="/page" />
+        <Route when="/" exact >
+          default
+        </Route>
       </Panel>
 
       <Footer { ...this.props } />
@@ -58,9 +64,29 @@ class AppContainerElement extends React.Component {
   }
 }
 
+class Page extends React.Component {
+  render() {
+		return <div className="my-element">Page</div>
+  }
+}
+class PageNum extends React.Component {
+  render() {
+		return <div className="my-element">PageNum Awesome Element!</div>
+  }
+}
+class PageNumSub extends React.Component {
+  render() {
+		return <div className="my-element">PageNumSub</div>
+  }
+}
+class PageThree extends React.Component {
+  render() {
+		return <div className="my-element">PageThree Awesome Element!</div>
+  }
+}
 class MyElement extends React.Component {
   render() {
-		return <div className="my-element"></div>
+		return <div className="my-element">My Awesome Element!</div>
   }
 }
 
