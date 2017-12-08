@@ -40,7 +40,7 @@ class Panel extends React.Component {
 						return result;
 					}, {})
 				}
-        this.foundElement = React.cloneElement(child, { ...this.props, params });
+        this.foundElement = React.cloneElement(child, { ...this.props, ...child.props, params });
         break;
       }
     }
