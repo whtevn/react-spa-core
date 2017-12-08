@@ -66,27 +66,47 @@ class AppContainerElement extends React.Component {
 
 class Page extends React.Component {
   render() {
-		return <div className="my-element">Page</div>
+		return <div className="my-element">
+						Page
+<br /> { this.props.name }
+<br /> { JSON.stringify(this.props.params) }
+					</div>
   }
 }
 class PageNum extends React.Component {
   render() {
-		return <div className="my-element">PageNum Awesome Element!</div>
+		return <div className="my-element">
+			PageNum Awesome Element!
+<br /> { this.props.name }
+<br /> { JSON.stringify(this.props.params) }
+		</div>
   }
 }
 class PageNumSub extends React.Component {
   render() {
-		return <div className="my-element">PageNumSub</div>
+		return <div className="my-element">
+PageNumSub
+<br /> { this.props.name }
+<br /> { JSON.stringify(this.props.params) }
+</div>
   }
 }
 class PageThree extends React.Component {
   render() {
-		return <div className="my-element">PageThree Awesome Element!</div>
+		return <div className="my-element">
+						PageThree Awesome Element!
+<br /> { this.props.name }
+<br /> { JSON.stringify(this.props.params) }
+					</div>
   }
 }
 class MyElement extends React.Component {
   render() {
-		return <div className="my-element">My Awesome Element!</div>
+		return <div className="my-element">
+						My Awesome Element!
+<br /> { this.props.name }
+<br /> { JSON.stringify(this.props.params) }
+					</div>
   }
 }
 
