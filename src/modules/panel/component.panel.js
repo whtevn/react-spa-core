@@ -8,7 +8,6 @@ class Panel extends React.Component {
   }
 
   render() {
-console.log(this.foundElement);
     return <div className={this.props.name}>
       { this.foundElement }
     </div>
@@ -22,17 +21,25 @@ console.log(this.foundElement);
   }
 
   changePanel({ panel, name, navigation, children, exact }){
-    const params={}
+    let params={}
     const location = navigation.getIn(["data", "location"])||"/"
     const allowedChildren = children.filter(c => c.type === Route)
     for(var i = 0; i<allowedChildren.length; i++){
       const child = allowedChildren[i];
-      const findParams = new RegExp(/:[^\/]*/, "g")
+      const findParams = new RegExp(/:([^\/]*)/, "g")
       const query = child.props.when.replace(findParams, "([^\\/]*)");
       const regx = exact ?
                     new RegExp(`^${query}$`) :
                     new RegExp(`^${query}.*`) ;
-      if(location.match(regx)){
+			const found = location.match(regx)
+      if(found){
+				const paramValues = child.props.when.match(findParams);
+				if(paramValues) {
+					params = paramValues.reduce((result, next, key)=> {
+						result[next.replace(":", "")] = found[key+1]
+						return result;
+					}, {})
+				}
         this.foundElement = child;
         break;
       }
