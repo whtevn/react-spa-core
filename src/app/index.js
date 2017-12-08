@@ -19,6 +19,12 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 
+import * as navigationActions from '../modules/navigation/actions.navigation';
+window.onhashchange = function() {
+  if(window.location.hash.match("#"))
+    store.dispatch(navigationActions.NavigateTo( window.location.hash.replace("#", "")))
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>

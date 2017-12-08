@@ -41,7 +41,7 @@ class AppContainerElement extends React.Component {
         </Route>
         <Route render={ PageNumSub } when="/page/:number/:sub" exact />
         <Route render={ PageNum } when="/page/:number" exact />
-        <Route when="/" exact >
+        <Route when="/">
           default
         </Route>
       </Panel>
@@ -49,7 +49,7 @@ class AppContainerElement extends React.Component {
       <Panel { ...this.props } name="information-panel" >
         <Route render={ PageThree } when="/page/three" />
         <Route render={ Page } when="/page" />
-        <Route when="/" exact >
+        <Route when="/">
           default
         </Route>
       </Panel>
