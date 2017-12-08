@@ -11943,16 +11943,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Link = function (_React$Component) {
-  _inherits(Link, _React$Component);
+var SubNavigation = function (_React$Component) {
+  _inherits(SubNavigation, _React$Component);
 
-  function Link() {
-    _classCallCheck(this, Link);
+  function SubNavigation() {
+    _classCallCheck(this, SubNavigation);
 
-    return _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (SubNavigation.__proto__ || Object.getPrototypeOf(SubNavigation)).apply(this, arguments));
   }
 
-  _createClass(Link, [{
+  _createClass(SubNavigation, [{
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -11963,7 +11963,7 @@ var Link = function (_React$Component) {
         this.props.children.map(function (child, key) {
           return _react2.default.createElement(
             "li",
-            { key: key, className: "link-list-element" },
+            { key: key, className: (child.props.to && _this2.props.navigation.getIn(["data", "location"]).match(child.props.to) ? "is-selected" : "") + " link-list-element" },
             _react2.default.cloneElement(child, _extends({}, _this2.props, child.props))
           );
         })
@@ -11971,10 +11971,10 @@ var Link = function (_React$Component) {
     }
   }]);
 
-  return Link;
+  return SubNavigation;
 }(_react2.default.Component);
 
-exports.default = Link;
+exports.default = SubNavigation;
 
 /***/ }),
 /* 177 */
@@ -40627,10 +40627,9 @@ var Link = function (_React$Component) {
     key: "render",
     value: function render() {
       var current = this.props.navigation.getIn(["data", "location"]).match(this.props.to);
-      console.log(current);
       return _react2.default.createElement(
         "a",
-        { href: "#", onClick: this.goto.bind(this) },
+        { href: "#", className: current ? "is-selected" : "", onClick: this.goto.bind(this) },
         this.props.children
       );
     }
@@ -40754,8 +40753,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(6);
@@ -40786,8 +40783,6 @@ var Navigation = function (_React$Component) {
   _createClass(Navigation, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       var hideMenu = this.props.navigation.getIn(["state", "hidden"]) ? "hide--tablet hide--mobile" : "";
       return _react2.default.createElement(
         'nav',
@@ -40800,13 +40795,7 @@ var Navigation = function (_React$Component) {
           },
           _react2.default.createElement('i', { className: 'icon-times' })
         ),
-        _react2.default.createElement(
-          _component2.default,
-          null,
-          this.props.children.map(function (child, key) {
-            return _react2.default.cloneElement(child, _extends({}, _this2.props, child.props, { key: key }));
-          })
-        )
+        _react2.default.createElement(_component2.default, this.props)
       );
     }
   }, {
