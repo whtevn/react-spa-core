@@ -11,7 +11,7 @@ export const Reducer = (state, action) => {
   switch (action.type) {
     case Actions.RENDER:
       return state
-        .setIn(["data", action.payload.name], fromJS(action.payload));
+        .setIn(["data", action.payload.panelName], fromJS(action.payload));
     default:
       return state;
   }

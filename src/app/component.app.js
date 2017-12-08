@@ -35,7 +35,7 @@ class AppContainerElement extends React.Component {
         </SubNavigation>
       </Navigation>
 
-      <Panel { ...this.props } name="activity-area" >
+      <Panel { ...this.props } panelName="activity-area" >
         <Route when="/page/one" exact >
 					Page 1
         </Route>
@@ -46,7 +46,7 @@ class AppContainerElement extends React.Component {
         </Route>
       </Panel>
 
-      <Panel { ...this.props } name="information-panel" >
+      <Panel { ...this.props } panelName="information-panel" >
         <Route render={ PageThree } when="/page/three" />
         <Route render={ Page } when="/page" />
         <Route when="/">
@@ -68,7 +68,7 @@ class Page extends React.Component {
   render() {
 		return <div className="my-element">
 						Page
-<br /> { this.props.name }
+<br /> { this.props.panelName }
 <br /> { JSON.stringify(this.props.params) }
 					</div>
   }
@@ -77,7 +77,7 @@ class PageNum extends React.Component {
   render() {
 		return <div className="my-element">
 			PageNum Awesome Element!
-<br /> { this.props.name }
+<br /> { this.props.panelName }
 <br /> { JSON.stringify(this.props.params) }
 		</div>
   }
@@ -86,7 +86,7 @@ class PageNumSub extends React.Component {
   render() {
 		return <div className="my-element">
 PageNumSub
-<br /> { this.props.name }
+<br /> { this.props.panelName }
 <br /> { JSON.stringify(this.props.params) }
 </div>
   }
@@ -95,7 +95,7 @@ class PageThree extends React.Component {
   render() {
 		return <div className="my-element">
 						PageThree Awesome Element!
-<br /> { this.props.name }
+<br /> { this.props.panelName }
 <br /> { JSON.stringify(this.props.params) }
 					</div>
   }
@@ -104,7 +104,7 @@ class MyElement extends React.Component {
   render() {
 		return <div className="my-element">
 						My Awesome Element!
-<br /> { this.props.name }
+<br /> { this.props.panelName }
 <br /> { JSON.stringify(this.props.params) }
 					</div>
   }
