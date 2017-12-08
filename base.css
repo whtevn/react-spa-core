@@ -8,7 +8,6 @@ body, html, #app-container {
   display: grid;
   grid-template-rows: 50px auto 30px;
   grid-template-columns: auto 250px minmax(400px, 800px) 250px auto;
-  background: green;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -89,6 +88,10 @@ a {
 
 .hide, .hide--desktop {
   display: none; }
+
+.is-selected {
+  background: #046865;
+  color: #eee; }
 
 @media screen and (max-width: 900px) {
   .hide--desktop {

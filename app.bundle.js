@@ -40626,6 +40626,8 @@ var Link = function (_React$Component) {
   _createClass(Link, [{
     key: "render",
     value: function render() {
+      var current = this.props.navigation.getIn(["data", "location"]).match(this.props.to);
+      console.log(current);
       return _react2.default.createElement(
         "a",
         { href: "#", onClick: this.goto.bind(this) },
