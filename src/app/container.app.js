@@ -3,10 +3,12 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { Map } from 'immutable';
 import * as navigationActions from '../modules/navigation/actions.navigation'
+import * as panelActions from '../modules/panel/actions.panel'
 
 const mapStateToProps = state => {
   return {
      navigation: state.get("navigation"),
+     panel: state.get("panel"),
   }
 }
 
@@ -21,11 +23,11 @@ const mapDispatchToProps = ( dispatch, state ) => {
     hideMenu: payload => {
       dispatch(navigationActions.HideMenu(payload))
     },
-    rendering: payload => {
-      dispatch(navigationActions.Render(payload))
-    },
     navigateTo: payload => {
       dispatch(navigationActions.NavigateTo(payload))
+    },
+    rendering: payload => {
+      dispatch(panelActions.Render(payload))
     },
   }
 }

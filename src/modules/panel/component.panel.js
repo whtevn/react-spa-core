@@ -1,4 +1,6 @@
 import React from 'react';
+import { panelChanged } from './reducer.panel';
+
 class Panel extends React.Component {
   render() {
     let foundElement
@@ -22,12 +24,15 @@ class Panel extends React.Component {
     <foundElement.props.render />:foundElement.props.children
 
 
-    // dispatch what we have found and where we are putting it
-    this.props.rendering({
+		const current = this.props.panel.getIn(["data", this.props.name])
+		const found = {
       name,
       route,
       params
-    })
+    }
+    // dispatch what we have found and where we are putting it
+    if(panelChanged({ current, found })) this.props.rendering(found)
+
     return <div className={this.props.name}>
       {displayElement}
     </div>
