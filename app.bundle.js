@@ -40918,7 +40918,7 @@ var Panel = function (_React$Component) {
               return result;
             }, {});
           }
-          _this2.foundElement = _react2.default.cloneElement(child, _extends({}, _this2.props, { params: params }));
+          _this2.foundElement = _react2.default.cloneElement(child, _extends({}, _this2.props, child.props, { params: params }));
           return 'break';
         }
       };
