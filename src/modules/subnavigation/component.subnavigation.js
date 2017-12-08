@@ -1,11 +1,11 @@
 import React from 'react';
-class Link extends React.Component {
+class SubNavigation extends React.Component {
   render() {
     return <ul className="link-list">
         {
           this.props.children.map(
           (child, key) =>
-            <li key={key} className="link-list-element">
+            <li key={key} className={(child.props.to&&this.props.navigation.getIn(["data", "location"]).match(child.props.to)? "is-selected" : "")+" link-list-element"}>
               {
                 React.cloneElement(child, {
                  ...this.props,
@@ -19,6 +19,6 @@ class Link extends React.Component {
   }
 }
 
-export default Link
+export default SubNavigation
 
 

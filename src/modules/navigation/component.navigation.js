@@ -11,13 +11,7 @@ class Navigation extends React.Component {
       >
         <i className="icon-times"></i>
       </a>
-      <SubNavigation>
-        {
-          this.props.children.map( (child, key) =>
-             React.cloneElement(child, { ...this.props, ...child.props, key})
-          )
-        }
-      </SubNavigation>
+      <SubNavigation { ...this.props } />
     </nav>
   }
 
