@@ -12013,7 +12013,7 @@ var Route = function (_React$Component) {
   _createClass(Route, [{
     key: 'render',
     value: function render() {
-      return this.props.render ? _react2.default.createElement(this.props.render, null) : this.props.children;
+      return this.props.render ? _react2.default.createElement(this.props.render, this.props) : this.props.children;
     }
   }]);
 
@@ -40457,7 +40457,13 @@ var Page = function (_React$Component2) {
       return _react2.default.createElement(
         'div',
         { className: 'my-element' },
-        'Page'
+        'Page',
+        _react2.default.createElement('br', null),
+        ' ',
+        this.props.name,
+        _react2.default.createElement('br', null),
+        ' ',
+        JSON.stringify(this.props.params)
       );
     }
   }]);
@@ -40480,7 +40486,13 @@ var PageNum = function (_React$Component3) {
       return _react2.default.createElement(
         'div',
         { className: 'my-element' },
-        'PageNum Awesome Element!'
+        'PageNum Awesome Element!',
+        _react2.default.createElement('br', null),
+        ' ',
+        this.props.name,
+        _react2.default.createElement('br', null),
+        ' ',
+        JSON.stringify(this.props.params)
       );
     }
   }]);
@@ -40503,7 +40515,13 @@ var PageNumSub = function (_React$Component4) {
       return _react2.default.createElement(
         'div',
         { className: 'my-element' },
-        'PageNumSub'
+        'PageNumSub',
+        _react2.default.createElement('br', null),
+        ' ',
+        this.props.name,
+        _react2.default.createElement('br', null),
+        ' ',
+        JSON.stringify(this.props.params)
       );
     }
   }]);
@@ -40526,7 +40544,13 @@ var PageThree = function (_React$Component5) {
       return _react2.default.createElement(
         'div',
         { className: 'my-element' },
-        'PageThree Awesome Element!'
+        'PageThree Awesome Element!',
+        _react2.default.createElement('br', null),
+        ' ',
+        this.props.name,
+        _react2.default.createElement('br', null),
+        ' ',
+        JSON.stringify(this.props.params)
       );
     }
   }]);
@@ -40549,7 +40573,13 @@ var MyElement = function (_React$Component6) {
       return _react2.default.createElement(
         'div',
         { className: 'my-element' },
-        'My Awesome Element!'
+        'My Awesome Element!',
+        _react2.default.createElement('br', null),
+        ' ',
+        this.props.name,
+        _react2.default.createElement('br', null),
+        ' ',
+        JSON.stringify(this.props.params)
       );
     }
   }]);
@@ -40801,6 +40831,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(6);
@@ -40886,7 +40918,7 @@ var Panel = function (_React$Component) {
               return result;
             }, {});
           }
-          _this2.foundElement = child;
+          _this2.foundElement = _react2.default.cloneElement(child, _extends({}, _this2.props, { params: params }));
           return 'break';
         }
       };
