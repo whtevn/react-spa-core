@@ -5,7 +5,10 @@ import { panelChanged } from './reducer.panel';
 class Panel extends React.Component {
   render() {
     return <div className={(this.props.className||"")+" "+this.props.panelName}>
-      { this.foundElement||"" }
+      { this.foundElement?React.cloneElement(this.foundElement, {
+        ...this.props,
+        children: this.foundElement.props.children
+        }):"" }
     </div>
   }
 
