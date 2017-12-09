@@ -1,7 +1,6 @@
 import React from 'react';
 class Route extends React.Component {
   render() {
-console.log(this.props.children);
     return this.props.render ?
     <this.props.render { ...this.props } />:
           typeof this.props.children === "string" ?
