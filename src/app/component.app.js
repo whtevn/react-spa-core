@@ -35,6 +35,30 @@ class AppContainerElement extends React.Component {
         </SubNavigation>
       </Navigation>
 
+      <Panel { ...this.props }
+				 panelName="modal"
+				 navigation={ this.props.modal }
+				 ignoreWhen={ this.props.modal.getIn(["state", "hidden"]) } >
+        <Route when="/modal/decline" exact >
+					<Link
+						 navigation={this.props.modal}
+						 navigateWith={this.props.closeModal}>
+
+							Close
+					</Link>
+					no thanks
+        </Route>
+        <Route when="/modal/accept" exact >
+					sounds good
+						<Link
+							 navigation={this.props.modal}
+							 navigateWith={this.props.closeModal}>
+
+								Close
+						</Link>
+        </Route>
+      </Panel>
+
       <Panel { ...this.props } panelName="activity-area" >
         <Route when="/page/one" exact >
 					Page 1
@@ -68,8 +92,25 @@ class Page extends React.Component {
   render() {
 		return <div className="my-element">
 						Page
-<br /> { this.props.panelName }
-<br /> { JSON.stringify(this.props.params) }
+						<br /> { this.props.panelName }
+						<br /> { JSON.stringify(this.props.params) }
+<br />
+						<Link
+							 to="/modal/decline"
+							 navigation={this.props.modal}
+							 navigateWith={this.props.openModalTo}>
+
+								Decline Modal Open
+						</Link>
+<br />
+
+						<Link
+							 to="/modal/accept"
+							 navigation={this.props.modal}
+							 navigateWith={this.props.openModalTo}>
+
+								Accept Modal Open
+						</Link>
 					</div>
   }
 }

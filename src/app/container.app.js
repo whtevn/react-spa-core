@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { Map } from 'immutable';
 import * as navigationActions from '../modules/navigation/actions.navigation'
 import * as panelActions from '../modules/panel/actions.panel'
+import * as modalActions from '../modules/modal/actions.modal'
 
 const mapStateToProps = state => {
   return {
      navigation: state.get("navigation"),
      panel: state.get("panel"),
+     modal: state.get("modal"),
   }
 }
 
@@ -23,9 +25,13 @@ const mapDispatchToProps = ( dispatch, state ) => {
     hideMenu: payload => {
       dispatch(navigationActions.HideMenu(payload))
     },
-    navigateTo: payload => {
-      dispatch(navigationActions.NavigateTo(payload))
+    openModalTo: payload => {
+      dispatch(modalActions.Open(payload))
     },
+    closeModal: payload => {
+      dispatch(modalActions.Close(payload))
+    },
+
     rendering: payload => {
       dispatch(panelActions.Render(payload))
     },

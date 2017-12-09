@@ -1,13 +1,20 @@
 import React from 'react';
 class Link extends React.Component {
   render() {
-    const current = this.props.navigation.getIn(["data", "location"]).match(this.props.to)
-    return <a href="#" className={current?"is-selected":""}  onClick={this.goto.bind(this)}>{this.props.children}</a>
+    const location = this.props.navigation.getIn(["data", "location"])||"/"
+    const current = this.props.to&&location.match(this.props.to)
+    const navigation = this.props.navigateWith
+    const href = "#"+(navigation?"":this.props.to);
+
+    return <a
+             href={href}
+             className={current?"is-selected":""}
+             onClick={navigation&&this.goto.bind(this)}>{this.props.children}</a>
   }
 
   goto(e){
     e.preventDefault();
-    this.props.navigateTo(this.props.to)
+    this.props.navigateWith(this.props.to)
   }
 }
 

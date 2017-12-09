@@ -3,24 +3,26 @@ import Route from '../route/component.route';
 import { panelChanged } from './reducer.panel';
 
 class Panel extends React.Component {
-  constructor( { panel, panelName, navigation, children, exact } ){
-    super();
-  }
-
   render() {
-    return <div className={this.props.panelName}>
-      { this.foundElement }
+    return <div className={(this.props.className||"")+" "+this.props.panelName}>
+      { this.foundElement||"" }
     </div>
   }
 
   componentDidMount(){
     this.changePanel(this.props)
   }
+
   componentWillReceiveProps(nextProps){
     if(this.props.navigation.getIn(["data", "location"]) != nextProps.navigation.getIn(["data", "location"])) this.changePanel(nextProps)
   }
 
-  changePanel({ panel, panelName, navigation, children, exact }){
+  changePanel(props){
+    const { panel, panelName, navigation, children, exact, ignoreWhen } = props;
+    if(ignoreWhen){
+       this.foundElement = '';
+       return true
+    }
     let params={}
     const location = navigation.getIn(["data", "location"])||"/"
     const allowedChildren = children.filter(c => c.type === Route)
@@ -44,6 +46,7 @@ class Panel extends React.Component {
         break;
       }
     }
+    if(!this.foundElement) return true;
     const route = this.foundElement.props.when;
 
 		const current = panel.getIn(["data", panelName])
