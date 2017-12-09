@@ -4,7 +4,7 @@ import { panelChanged } from './reducer.panel';
 
 class Panel extends React.Component {
   render() {
-    return <div className={(this.props.className||"")+" "+this.props.panelName}>
+    return this.props.ignoreWhen?'':<div className={(this.props.className||"")+" "+this.props.panelName}>
       { this.foundElement?React.cloneElement(this.foundElement, {
         ...this.props,
         children: this.foundElement.props.children
