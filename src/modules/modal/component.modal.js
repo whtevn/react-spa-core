@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Panel from '../router/panel/component.panel';
-import Route from '../router/route/component.route';
-import Link from '../router/link/component.link';
+import { Panel, Route, Link } from 'routerSpaCore';
 
 class Modal extends React.Component {
   constructor(){

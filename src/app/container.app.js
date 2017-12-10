@@ -2,8 +2,8 @@ import AppElement from './component.app';
 import { connect } from 'react-redux';
 import { Map } from 'immutable';
 
-import { Actions as layoutActions } from '../modules/layout'
-import { Actions as routerActions } from '../modules/router'
+import { Actions as layoutActions } from 'layoutSpaCore'
+import { Actions as routerActions } from 'routerSpaCore'
 
 import * as modalActions from '../modules/modal/actions.modal'
 
