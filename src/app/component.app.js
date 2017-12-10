@@ -2,6 +2,7 @@ import React from 'react';
 import Link from '../modules/link/component.link';
 import Header from '../modules/header/component.header';
 import Footer from '../modules/footer/component.footer';
+import Modal from '../modules/modal/component.modal';
 import Navigation from '../modules/navigation/component.navigation';
 import SubNavigation from '../modules/subnavigation/component.subnavigation';
 import Panel from '../modules/panel/component.panel';
@@ -35,29 +36,7 @@ class AppContainerElement extends React.Component {
         </SubNavigation>
       </Navigation>
 
-      <Panel { ...this.props }
-				 panelName="modal"
-				 navigation={ this.props.modal }
-				 ignoreWhen={ this.props.modal.getIn(["state", "hidden"]) } >
-        <Route when="/modal/decline" exact >
-					<Link
-						 navigation={this.props.modal}
-						 navigateWith={this.props.closeModal}>
-
-							Close
-					</Link>
-					no thanks
-        </Route>
-        <Route when="/modal/accept" exact >
-					sounds good
-						<Link
-							 navigation={this.props.modal}
-							 navigateWith={this.props.closeModal}>
-
-								Close
-						</Link>
-        </Route>
-      </Panel>
+      <Modal { ...this.props } />
 
       <Panel { ...this.props } panelName="activity-area" >
         <Route when="/page/one" exact >
