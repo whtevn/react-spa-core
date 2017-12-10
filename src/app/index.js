@@ -19,15 +19,10 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 
-
 /* set up initial location for panel rendering */
-import * as navigationActions from '../modules/layout/actions.layout';
-const initialLocation = window.location.hash?window.location.hash.replace("#", ""):"/"
-store.dispatch(navigationActions.NavigateTo(initialLocation))
-window.onhashchange = function() {
-  if(window.location.hash.match("#"))
-    store.dispatch(navigationActions.NavigateTo( window.location.hash.replace("#", "")))
-}
+import { Actions as navigationActions } from '../modules/layout';
+import { prepareBrowserHistory } from '../modules/router';
+prepareBrowserHistory(store, navigationActions);
 /* end panel rendering setup */
 
 ReactDOM.render(

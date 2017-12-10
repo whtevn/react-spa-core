@@ -1,19 +1,19 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 
-import { Reducer as NavigationReducer, initialState as navigationState } from '../modules/layout/reducer.layout';
-import { Reducer as PanelReducer, initialState as panelState } from '../modules/router/reducer.router';
+import { StateManager as LayoutStateManager } from '../modules/layout';
+import { StateManager as RouterStateManager } from '../modules/router';
 import { Reducer as ModalReducer, initialState as modalState } from '../modules/modal/reducer.modal';
 
 export const initialState = fromJS({
-  navigation: navigationState,
-  panel: panelState,
+  navigation: LayoutStateManager.initialState,
+  panel: RouterStateManager.initialState,
   modal: modalState,
 });
 
 const AppReducer = combineReducers({
-	navigation: NavigationReducer,
-	panel: PanelReducer,
+	navigation: LayoutStateManager.Reducer,
+	panel: RouterStateManager.Reducer,
 	modal: ModalReducer,
 });
 

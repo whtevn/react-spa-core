@@ -1,11 +1,9 @@
 import AppElement from './component.app';
-import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { Map } from 'immutable';
 
-import * as navigationActions from '../modules/layout/actions.layout'
-
-import * as panelActions from '../modules/router/actions.router'
+import { Actions as layoutActions } from '../modules/layout'
+import { Actions as routerActions } from '../modules/router'
 
 import * as modalActions from '../modules/modal/actions.modal'
 
@@ -19,15 +17,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = ( dispatch, state ) => {
   return {
-    toggleMenu: payload => {
-      dispatch(navigationActions.ToggleMenu(payload))
-    },
-    showMenu: payload => {
-      dispatch(navigationActions.ShowMenu(payload))
-    },
-    hideMenu: payload => {
-      dispatch(navigationActions.HideMenu(payload))
-    },
     openModalTo: payload => {
       dispatch(modalActions.Open(payload))
     },
@@ -35,16 +24,23 @@ const mapDispatchToProps = ( dispatch, state ) => {
       dispatch(modalActions.Close(payload))
     },
 
+    toggleMenu: payload => {
+      dispatch(layoutActions.ToggleMenu(payload))
+    },
+    showMenu: payload => {
+      dispatch(layoutActions.ShowMenu(payload))
+    },
+    hideMenu: payload => {
+      dispatch(layoutActions.HideMenu(payload))
+    },
+
     rendering: payload => {
-      dispatch(panelActions.Render(payload))
+      dispatch(routerActions.Render(payload))
     },
   }
 }
 
-export default withRouter(connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AppElement))
-
-
-
+)(AppElement)
