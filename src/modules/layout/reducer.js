@@ -1,5 +1,5 @@
 import { fromJS, List, Map } from 'immutable';
-import * as Actions from './actions.navigation';
+import * as Actions from './actions';
 
 export const initialState = fromJS({
   state: {

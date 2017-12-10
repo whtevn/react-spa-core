@@ -2,15 +2,8 @@ import React from 'react';
 
 
 // Layout
-import Header from '../modules/layout/header/component.header';
-import Footer from '../modules/layout/footer/component.footer';
-import Navigation from '../modules/layout/navigation/component.navigation';
-import SubNavigation from '../modules/layout/subnavigation/component.subnavigation';
-
-// Router
-import Panel from '../modules/router/panel/component.panel';
-import Route from '../modules/router/route/component.route';
-import Link from '../modules/router/link/component.link';
+import { Header, Footer , Navigation, SubNavigation } from '../modules/layout/component.layout';
+import { Panel, Route, Link } from '../modules/router/component.router';
 
 // Custom
 import Modal from '../modules/modal/component.modal';

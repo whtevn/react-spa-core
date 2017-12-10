@@ -1,6 +1,6 @@
 import React from 'react';
 import Route from '../route/component.route';
-import { panelChanged } from './reducer.panel';
+import { panelChanged } from '../reducer';
 
 class Panel extends React.Component {
   render() {
