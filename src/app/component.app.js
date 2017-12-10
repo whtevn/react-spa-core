@@ -69,8 +69,6 @@ class AppContainerElement extends React.Component {
 
 class Page extends React.Component {
   render() {
-console.log(this.props.modal.toJS());
-console.log(this.props.panel.toJS());
 		return <div className="my-element">
 						Page
 						<br /> { this.props.panelName }
