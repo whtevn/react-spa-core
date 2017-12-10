@@ -21,7 +21,7 @@ const store = createStore(
 
 
 /* set up initial location for panel rendering */
-import * as navigationActions from '../modules/navigation/actions.navigation';
+import * as navigationActions from '../modules/layout/navigation/actions.navigation';
 const initialLocation = window.location.hash?window.location.hash.replace("#", ""):"/"
 store.dispatch(navigationActions.NavigateTo(initialLocation))
 window.onhashchange = function() {

@@ -1,12 +1,19 @@
 import React from 'react';
-import Link from '../modules/link/component.link';
-import Header from '../modules/header/component.header';
-import Footer from '../modules/footer/component.footer';
+
+
+// Layout
+import Header from '../modules/layout/header/component.header';
+import Footer from '../modules/layout/footer/component.footer';
+import Navigation from '../modules/layout/navigation/component.navigation';
+import SubNavigation from '../modules/layout/subnavigation/component.subnavigation';
+
+// Router
+import Panel from '../modules/router/panel/component.panel';
+import Route from '../modules/router/route/component.route';
+import Link from '../modules/router/link/component.link';
+
+// Custom
 import Modal from '../modules/modal/component.modal';
-import Navigation from '../modules/navigation/component.navigation';
-import SubNavigation from '../modules/subnavigation/component.subnavigation';
-import Panel from '../modules/panel/component.panel';
-import Route from '../modules/route/component.route';
 
 class AppContainerElement extends React.Component {
   render() {

@@ -2,8 +2,11 @@ import AppElement from './component.app';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { Map } from 'immutable';
-import * as navigationActions from '../modules/navigation/actions.navigation'
-import * as panelActions from '../modules/panel/actions.panel'
+
+import * as navigationActions from '../modules/layout/navigation/actions.navigation'
+
+import * as panelActions from '../modules/router/panel/actions.panel'
+
 import * as modalActions from '../modules/modal/actions.modal'
 
 const mapStateToProps = state => {

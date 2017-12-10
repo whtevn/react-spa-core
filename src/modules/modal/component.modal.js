@@ -1,8 +1,8 @@
 import React from 'react';
-import SubNavigation from '../subnavigation/component.subnavigation';
-import Panel from '../panel/component.panel';
-import Route from '../route/component.route';
-import Link from '../link/component.link';
+
+import Panel from '../router/panel/component.panel';
+import Route from '../router/route/component.route';
+import Link from '../router/link/component.link';
 
 class Modal extends React.Component {
   constructor(){

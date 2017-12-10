@@ -1,4 +1,4 @@
-import fetch from '../../assets/lib/fetch';
+import fetch from '../../../assets/lib/fetch';
 
 const Type = "Navigation";
 
