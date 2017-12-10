@@ -20,8 +20,8 @@ const store = createStore(
 );
 
 /* set up initial location for panel rendering */
-import { Actions as navigationActions } from '../modules/layout';
-import { prepareBrowserHistory } from '../modules/router';
+import { Actions as navigationActions } from 'layoutSpaCore';
+import { prepareBrowserHistory } from 'routerSpaCore';
 prepareBrowserHistory(store, navigationActions);
 /* end panel rendering setup */
 

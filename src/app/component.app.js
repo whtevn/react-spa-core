@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Layout
-import { Header, Footer, Navigation, SubNavigation } from '../modules/layout';
+import { Header, Footer, Navigation, SubNavigation } from 'layoutSpaCore';
 
-import { Panel, Route, Link } from '../modules/router';
+import { Panel, Route, Link } from 'routerSpaCore';
 
 // Custom
 import Modal from '../modules/modal/component.modal';

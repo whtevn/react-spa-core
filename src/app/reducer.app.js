@@ -1,8 +1,8 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 
-import { StateManager as LayoutStateManager } from '../modules/layout';
-import { StateManager as RouterStateManager } from '../modules/router';
+import { StateManager as LayoutStateManager } from 'layoutSpaCore';
+import { StateManager as RouterStateManager } from 'routerSpaCore';
 import { Reducer as ModalReducer, initialState as modalState } from '../modules/modal/reducer.modal';
 
 export const initialState = fromJS({
