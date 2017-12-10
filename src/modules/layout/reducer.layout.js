@@ -1,5 +1,5 @@
 import { fromJS, List, Map } from 'immutable';
-import * as Actions from './actions';
+import * as Actions from './actions.layout';
 
 export const initialState = fromJS({
   state: {

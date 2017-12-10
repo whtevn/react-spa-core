@@ -3,9 +3,9 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { Map } from 'immutable';
 
-import * as navigationActions from '../modules/layout/actions'
+import * as navigationActions from '../modules/layout/actions.layout'
 
-import * as panelActions from '../modules/router/actions'
+import * as panelActions from '../modules/router/actions.router'
 
 import * as modalActions from '../modules/modal/actions.modal'
 
