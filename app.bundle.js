@@ -40591,8 +40591,6 @@ var Page = function (_React$Component2) {
   _createClass(Page, [{
     key: 'render',
     value: function render() {
-      console.log(this.props.modal.toJS());
-      console.log(this.props.panel.toJS());
       return _react2.default.createElement(
         'div',
         { className: 'my-element' },
